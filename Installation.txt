@@ -1,0 +1,30 @@
+------------------------------------------------------------------------------------------------------
+Jenkins installation on Rhel
+
+yum install java-1.8.0-openjdk
+Yum install wget
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum install jenkins -y
+
+service jenkins start            service jenkins status         service jenkins stop
+sudo chkconfig jenkins on
+cat /var/lib/jenkins/secrets/initialAdminPassword
+-------------------------------------------------------------------------------------------------------
+Jenkins installation on ubuntu
+sudo apt-get update
+sudo apt-get install default-jre
+sudo apt-get install default-jdk
+sudo apt-get install openjdk-8*
+
+
+sudo apt-get update
+wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get install jenkins
+service jenkins start
+service jenkins status
+more /var/lib/jenkins/secrets/initialAdminPassword
+
+--------------------------------------------------------------------------------------------------------
